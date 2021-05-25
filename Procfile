@@ -1,1 +1,1 @@
-web: java -jar $JAVA_OPTS -Dserver.port=$PORT target/praticandoAPI.jar
+web: java -jar $JAVA_OPTS -Dserver.port=$PORT -Dspring.profiles.active=prod -jar target/*.war
