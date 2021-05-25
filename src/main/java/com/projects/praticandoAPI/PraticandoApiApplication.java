@@ -18,9 +18,9 @@ public class PraticandoApiApplication {
 	}
 
 	@RequestMapping("/")
-	@ResponseBody
-	public String index() {
-		return "index.html";
-	}
+    @ResponseBody
+    String home() {
+      return "Hello World!";
+    }
 
 }
