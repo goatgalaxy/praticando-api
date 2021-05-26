@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class LivroDto {
 
-	private Long id;
+	private int id;
 	private String titulo;
 	private String autor;
 	
@@ -16,7 +16,7 @@ public class LivroDto {
 		this.autor = livro.getAutor();
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
