@@ -8,20 +8,29 @@ import javax.persistence.Id;
 @Entity
 public class Livro {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	private String titulo;
 	private String autor;
 
 	public Livro() {
 	}
 
+	public Livro(String titulo, String autor) {
+		this.titulo = titulo;
+		this.autor = autor;
+	}
+
+	public Livro(Long id, String titulo, String autor) {
+		this.id = id;
+		this.titulo = titulo;
+		this.autor = autor;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -34,31 +43,19 @@ public class Livro {
 		if (getClass() != obj.getClass())
 			return false;
 		Livro other = (Livro) obj;
-		if (autor == null) {
-			if (other.autor != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!autor.equals(other.autor))
-			return false;
-		if (id != other.id)
-			return false;
-		if (titulo == null) {
-			if (other.titulo != null)
-				return false;
-		} else if (!titulo.equals(other.titulo))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
 
-	public Livro(String titulo, String autor) {
-		this.titulo = titulo;
-		this.autor = autor;
-	}
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

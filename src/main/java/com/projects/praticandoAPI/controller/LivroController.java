@@ -35,7 +35,7 @@ public class LivroController {
 	
 	@PostMapping
 	public ResponseEntity<LivroDto> cadastrar(@RequestBody LivroForm form, UriComponentsBuilder uriBuilder) {
-		Livro livro = new Livro("Abc", "Def");
+		Livro livro = new Livro(Long.valueOf(6), "Abc", "Def");
 		//form.converter();
 		livroRepository.save(livro);
 		
