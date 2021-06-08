@@ -1,25 +1,5 @@
-# Docker multi-stage build
- 
-# 1. Building the App with Maven
-FROM maven:3-jdk-11
- 
-ADD . /praticandoapi
-WORKDIR /praticandoapi
- 
-# Just echo so we can see, if everything is there :)
-RUN ls -l
- 
-# Run Maven build
-RUN mvn clean install
- 
- 
-# 2. Just using the build artifact and then removing the build-container
-FROM openjdk:11-jdk
- 
-VOLUME /tmp
- 
-# Add Spring Boot app.jar to Container
-COPY --from=0 "/praticandoapi/target/praticandoApi-*-SNAPSHOT.jar" app.jar
- 
-# Fire up our Spring Boot app by default
-CMD [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+FROM openjdk:8-jre-slim
+WORKDIR /praticandoAPI
+COPY target/*.war /praticandoAPI/praticandoAPI-0.0.1-SNAPSHOT.war
+EXPOSE 8080
+CMD java -XX:+UseContainerSupport -Xmx512m -jar praticandoAPI-0.0.1-SNAPSHOT.war
