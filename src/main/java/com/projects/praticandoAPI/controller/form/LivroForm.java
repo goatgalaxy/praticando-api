@@ -7,6 +7,13 @@ public class LivroForm {
 	private String titulo;
 	private String autor;
 
+	public LivroForm() {}
+
+	public LivroForm(String titulo, String autor) {
+		this.titulo = titulo;
+		this.autor = autor;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
