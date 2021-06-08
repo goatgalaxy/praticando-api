@@ -35,9 +35,8 @@ public class PraticandoApiApplicationTests {
 
     @Test
     public void dummyTest() throws Exception {
-        assertEquals(11, 11);
+        assertEquals(10, 10);
     }
 
 
 }
-
